@@ -1,6 +1,6 @@
 module github.com/Orlandoiii/logger
 
-go 1.22.3
+go 1.23.0
 
 require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
