@@ -16,11 +16,6 @@ import (
 
 const dateFormat = "2006-01-02T15:04:05.999999"
 
-type Ids struct {
-	Key   string
-	Value string
-}
-
 type FilteredWriter struct {
 	w     zerolog.LevelWriter
 	level zerolog.Level
@@ -40,7 +35,7 @@ var log zerolog.Logger
 
 var name string
 
-func loadConfigLog(config *ConfigLogger, asConsole bool) error {
+func load(config *ConfigLogger, asConsole bool) error {
 
 	serverName, err := os.Hostname()
 	if err != nil {
@@ -223,8 +218,8 @@ func GetLogggerWithIdentifiers(identifiers map[string]string) zerolog.Logger {
 	return child.Logger()
 }
 
-func LoadLogger(config *ConfigLogger, asConsole bool) {
-	err := loadConfigLog(config, asConsole)
+func Load(config *ConfigLogger, asConsole bool) {
+	err := load(config, asConsole)
 	if err != nil {
 		panic(err)
 	}
