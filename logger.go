@@ -218,9 +218,10 @@ func GetLogggerWithIdentifiers(identifiers map[string]string) zerolog.Logger {
 	return child.Logger()
 }
 
-func Load(config *ConfigLogger, asConsole bool) {
+func Load(config *ConfigLogger, asConsole bool) error {
 	err := load(config, asConsole)
 	if err != nil {
-		panic(err)
+		return err
 	}
+	return nil
 }
