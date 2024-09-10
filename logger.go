@@ -42,7 +42,8 @@ func load(config *ConfigLogger, asConsole bool) error {
 		return err
 	}
 
-	path := "./"
+	path := config.Ruta
+
 	var writersTrace io.Writer
 	var writersDebug io.Writer
 	var writersInfo io.Writer
